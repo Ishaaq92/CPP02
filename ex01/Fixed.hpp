@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 11:10:11 by isahmed           #+#    #+#             */
-/*   Updated: 2025/08/18 16:19:24 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/08/19 15:30:16 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Fixed
 		float			toFloat( void ) const;
 		int				toInt( void ) const;
 	private:
-		int					integer_;
+		int					value_;
 		static const int	fractional_ = 8;
 };
 
