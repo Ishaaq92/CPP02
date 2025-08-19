@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 11:13:48 by isahmed           #+#    #+#             */
-/*   Updated: 2025/08/19 17:48:29 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/08/19 17:54:01 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int		Fixed::toInt( void ) const
 	return (this->value_ >> this->fractional_);
 }
 
-std::ostream	&operator<<(std::ostream &out, Fixed &val)
+std::ostream	&operator<<(std::ostream &out, const Fixed &val)
 {
 	out << val.toFloat();
 	return (out);

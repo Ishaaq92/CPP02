@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 11:10:11 by isahmed           #+#    #+#             */
-/*   Updated: 2025/08/19 15:30:16 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/08/19 17:53:21 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ class Fixed
 		static const int	fractional_ = 8;
 };
 
-std::ostream	&operator<<(std::ostream &out, Fixed &val);
+std::ostream	&operator<<(std::ostream &out, const Fixed &val);
 
 #endif
