@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 11:13:48 by isahmed           #+#    #+#             */
-/*   Updated: 2025/08/19 15:47:05 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/08/19 17:48:29 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,14 @@ Fixed::Fixed(const int val)
 Fixed::Fixed(const float val)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->value_ = val << this->fractional_;
+	this->value_ = roundf((val  * (1 << this->fractional_)));
 }
 
 float	Fixed::toFloat( void ) const
 {
 	float	val;
 
-	val = (float) (this->value_ >> this->fractional_);
+	val = (this->value_ / (float) (1 << this->fractional_));
 	return (val);
 }
 
