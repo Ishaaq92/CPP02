@@ -6,12 +6,13 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 11:13:48 by isahmed           #+#    #+#             */
-/*   Updated: 2025/08/18 16:25:42 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/08/19 15:16:25 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <ostream>
+#include <cmath>
 
 Fixed::Fixed(void) : integer_(0)
 {
@@ -51,13 +52,14 @@ Fixed	&Fixed::operator=(const Fixed &right)
 
 Fixed::Fixed(const int val)
 {
+	std::cout << "Int constructor called" << std::endl;
 	this->integer_ = val;
 }
 
 Fixed::Fixed(const float val)
 {
+	std::cout << "Float constructor called" << std::endl;
 	this->integer_ = (int) val;
-	float diff = val - this->integer_;
 }
 
 float	Fixed::toFloat( void ) const
