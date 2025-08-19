@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 11:13:48 by isahmed           #+#    #+#             */
-/*   Updated: 2025/08/19 18:19:07 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/08/19 19:32:55 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,4 +140,38 @@ float	Fixed::operator*(const Fixed &right)
 float	Fixed::operator/(const Fixed &right)
 {
 	return (this->toFloat() / right.toFloat());
+}
+
+Fixed	Fixed::operator++()
+{
+	++this->value_;
+	std::cout << "Preincrement ++" << std::endl;
+	return (*this);
+}
+
+Fixed	Fixed::operator--()
+{
+	--this->value_;
+	std::cout << "Predecrement --" << std::endl;
+	return (*this);
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed	val;
+
+	val = *this;
+	this->value_ = this->value_ + 1;
+	std::cout << "Postincrement ++" << std::endl;
+	return (val);
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed	val;
+
+	val = *this;
+	this->value_ = this->value_ - 1;
+	std::cout << "Postdecrement --" << std::endl;
+	return (val);
 }

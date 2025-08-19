@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 11:10:11 by isahmed           #+#    #+#             */
-/*   Updated: 2025/08/19 18:14:40 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/08/19 18:53:41 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,12 @@ class Fixed
 		float			operator-(const Fixed &right);
 		float			operator*(const Fixed &right);
 		float			operator/(const Fixed &right);
+
+		Fixed			operator++();
+		Fixed			operator--();
+
+		Fixed			operator++(int);
+		Fixed			operator--(int);
 	private:
 		int					value_;
 		static const int	fractional_ = 8;
