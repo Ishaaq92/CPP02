@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 11:13:48 by isahmed           #+#    #+#             */
-/*   Updated: 2025/08/20 11:55:28 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/08/20 12:28:35 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,14 +176,14 @@ Fixed	Fixed::operator--(int)
 	return (val);
 }
 
-Fixed	&Fixed::min(Fixed &f1, Fixed &f2) const
+Fixed	&Fixed::min(Fixed &f1, Fixed &f2)
 {
 	if (f1 > f2)
 		return (f2);
 	return (f1);
 }
 
-Fixed	&Fixed::max(Fixed &f1, Fixed &f2) const
+Fixed	&Fixed::max(Fixed &f1, Fixed &f2)
 {
 	if (f1 > f2)
 		return (f1);
