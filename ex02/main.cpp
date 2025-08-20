@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 12:51:53 by isahmed           #+#    #+#             */
-/*   Updated: 2025/08/20 11:18:05 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/08/20 12:09:16 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 int main(void)
 {
-	Fixed a;
-	Fixed b;
+	Fixed	a;
+	Fixed	b;
 
 	a = Fixed( 42.42f );
 	b = Fixed( 42 );
@@ -54,4 +54,7 @@ int main(void)
 	std::cout << (b++) << std::endl;
 	b = Fixed( 42 );
 	std::cout << (b--) << std::endl;
+
+	std::cout << Fixed::min( a, b ) << std::endl;
+	std::cout << Fixed::max( a, b ) << std::endl;
 }
