@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 11:13:48 by isahmed           #+#    #+#             */
-/*   Updated: 2025/08/19 19:32:55 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/08/20 11:55:28 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,42 +80,42 @@ std::ostream	&operator<<(std::ostream &out, const Fixed &val)
 	return (out);
 }
 
-bool	Fixed::operator>(const Fixed &right)
+bool	Fixed::operator>(const Fixed &right) const 
 {
 	if (this->toFloat() > right.toFloat())
 		return (true);
 	return (false);
 }
 
-bool	Fixed::operator<(const Fixed &right)
+bool	Fixed::operator<(const Fixed &right) const 
 {
 	if (this->toFloat() < right.toFloat())
 		return (true);
 	return (false);
 }
 
-bool	Fixed::operator>=(const Fixed &right)
+bool	Fixed::operator>=(const Fixed &right) const 
 {
 	if (this->toFloat() >= right.toFloat())
 		return (true);
 	return (false);
 }
 
-bool	Fixed::operator<=(const Fixed &right)
+bool	Fixed::operator<=(const Fixed &right) const 
 {
 	if (this->toFloat() <= right.toFloat())
 		return (true);
 	return (false);
 }
 
-bool	Fixed::operator==(const Fixed &right)
+bool	Fixed::operator==(const Fixed &right) const 
 {
 	if (this->toFloat() == right.toFloat())
 		return (true);
 	return (false);
 }
 
-bool	Fixed::operator!=(const Fixed &right)
+bool	Fixed::operator!=(const Fixed &right) const
 {
 	if (this->toFloat() != right.toFloat())
 		return (true);
@@ -142,14 +142,14 @@ float	Fixed::operator/(const Fixed &right)
 	return (this->toFloat() / right.toFloat());
 }
 
-Fixed	Fixed::operator++()
+Fixed	&Fixed::operator++()
 {
 	++this->value_;
 	std::cout << "Preincrement ++" << std::endl;
 	return (*this);
 }
 
-Fixed	Fixed::operator--()
+Fixed	&Fixed::operator--()
 {
 	--this->value_;
 	std::cout << "Predecrement --" << std::endl;
@@ -161,7 +161,7 @@ Fixed	Fixed::operator++(int)
 	Fixed	val;
 
 	val = *this;
-	this->value_ = this->value_ + 1;
+	this->value_++;
 	std::cout << "Postincrement ++" << std::endl;
 	return (val);
 }
@@ -171,7 +171,35 @@ Fixed	Fixed::operator--(int)
 	Fixed	val;
 
 	val = *this;
-	this->value_ = this->value_ - 1;
+	this->value_--;
 	std::cout << "Postdecrement --" << std::endl;
 	return (val);
+}
+
+Fixed	&Fixed::min(Fixed &f1, Fixed &f2) const
+{
+	if (f1 > f2)
+		return (f2);
+	return (f1);
+}
+
+Fixed	&Fixed::max(Fixed &f1, Fixed &f2) const
+{
+	if (f1 > f2)
+		return (f1);
+	return (f2);
+}
+
+const Fixed	&Fixed::max(const Fixed &f1, const Fixed &f2)
+{
+	if (f1 > f2)
+		return (f1);
+	return (f2);
+}
+
+const Fixed	&Fixed::min(const Fixed &f1, const Fixed &f2)
+{
+	if (f1 > f2)
+		return (f2);
+	return (f1);
 }

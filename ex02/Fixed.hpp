@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 11:10:11 by isahmed           #+#    #+#             */
-/*   Updated: 2025/08/19 18:53:41 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/08/20 11:55:37 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,27 @@ class Fixed
 		void			setRawBits( int const raw );
 		int				toInt( void ) const;
 		float			toFloat( void ) const;
+		Fixed			&min(Fixed &f1, Fixed &f2) const;
+		Fixed			&max(Fixed &f1, Fixed &f2) const;
+		const Fixed		&min(const Fixed &f1, const Fixed &f2);
+		const Fixed		&max(const Fixed &f1, const Fixed &f2);
 
 		Fixed			&operator=(const Fixed &right);
 
-		bool			operator>(const Fixed &right);
-		bool			operator<(const Fixed &right);
-		bool			operator>=(const Fixed &right);
-		bool			operator<=(const Fixed &right);
-		bool			operator==(const Fixed &right);
-		bool			operator!=(const Fixed &right);
+		bool			operator>(const Fixed &right) const;
+		bool			operator<(const Fixed &right) const;
+		bool			operator>=(const Fixed &right) const;
+		bool			operator<=(const Fixed &right) const;
+		bool			operator==(const Fixed &right) const;
+		bool			operator!=(const Fixed &right) const;
 
 		float			operator+(const Fixed &right);
 		float			operator-(const Fixed &right);
 		float			operator*(const Fixed &right);
 		float			operator/(const Fixed &right);
 
-		Fixed			operator++();
-		Fixed			operator--();
+		Fixed			&operator++();
+		Fixed			&operator--();
 
 		Fixed			operator++(int);
 		Fixed			operator--(int);
