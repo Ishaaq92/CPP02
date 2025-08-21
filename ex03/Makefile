@@ -6,28 +6,37 @@
 #    By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/18 14:14:03 by isahmed           #+#    #+#              #
-#    Updated: 2025/08/19 18:01:02 by isahmed          ###   ########.fr        #
+#    Updated: 2025/08/21 12:58:14 by isahmed          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC= clang++
-CFLAGS = -Wall -Wextra -Werror
-CPPFILES = main.cpp Fixed.cpp
+CC = clang++
+CFLAGS = -Wall -Wextra -Werror  -std=c++98
+SRCS = main.cpp Fixed.cpp bsp.cpp
 NAME = a.out
-OBJS = $(patsubst %.cpp,%.o, $(CPPFILES))
+SDIR = srcs/
+IDIR = inc/
+ODIR = objs/
+CFLAGS += -I$(IDIR)
+OBJS = $(addprefix $(ODIR), $(SRCS:.cpp=.o))
+
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(OBJS)
 	@$(MAKE) clean
 
- %.o: %.cpp 
-	$(CC) $(CFLAGS) -c -o  $@ $<
+$(ODIR):
+	@mkdir -p $(ODIR)
+
+ $(ODIR)%.o: $(SDIR)%.cpp  | $(ODIR)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 re: fclean all
 
 clean:
-	rm -rf *.o
+	rm -rf $(ODIR)*
+
 fclean: clean
 	rm -rf $(NAME)

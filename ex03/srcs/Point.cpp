@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 12:36:21 by isahmed           #+#    #+#             */
-/*   Updated: 2025/08/20 16:12:51 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/08/21 12:52:15 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,20 @@ bool	Point::on_line(const Point a, const Point b, const Point p)
 	m = 0;
 	if (a.x != b.x)
 		m = Fixed((a.y - b.y) / (a.x - b.x));
-	else
-		m = Fixed(0);
 	c = a.y - (m * a.x);
-	if (((m * p.x) + c) > p.y)
-		return (1);
+	if (f(m, c, p.x) == f(m, c, c))
+		return (true);
 	
 }
 
-Point   &Point::mid_point(const Point p1, const Point p2)
+int	Point::f(const Fixed &m, const Fixed &c , const Fixed &p)
 {
-	Point   m(((p1.x + p2.x) / 2), ((p1.y + p2.y) / 2));
+	Fixed	y_val;
 
-	return (m);
+	y_val = (p * m) + c.toFloat();
+	if (p < y_val)
+		return (true);
+	return (false);
 }
 
 bool      Point::operator==(const Point rhs) const
