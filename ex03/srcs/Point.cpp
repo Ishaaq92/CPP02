@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 12:36:21 by isahmed           #+#    #+#             */
-/*   Updated: 2025/08/21 12:52:15 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/08/21 13:14:57 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ bool	Point::on_line(const Point a, const Point b, const Point p)
 	c = a.y - (m * a.x);
 	if (f(m, c, p.x) == f(m, c, c))
 		return (true);
-	
+	return (false);
 }
 
 int	Point::f(const Fixed &m, const Fixed &c , const Fixed &p)

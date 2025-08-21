@@ -6,11 +6,12 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 12:35:34 by isahmed           #+#    #+#             */
-/*   Updated: 2025/08/21 12:54:24 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/08/21 13:18:45 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef POINT_HPP
+# define POINT_HPP
 
 #include "Fixed.hpp"
 
@@ -28,3 +29,7 @@ class Point
 		static int	f(const Fixed &m, const Fixed &c , const Fixed &p);
 		bool            operator==(const Point rhs) const;
 };
+
+bool bsp( Point const a, Point const b, Point const c, Point const point);
+
+#endif
