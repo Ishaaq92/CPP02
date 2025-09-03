@@ -6,11 +6,11 @@
 #    By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/18 14:14:03 by isahmed           #+#    #+#              #
-#    Updated: 2025/08/21 13:14:47 by isahmed          ###   ########.fr        #
+#    Updated: 2025/09/03 13:20:42 by isahmed          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = clang++
+CC = c++
 CFLAGS = -Wall -Wextra -Werror  -std=c++98
 SRCS = main.cpp Fixed.cpp bsp.cpp Point.cpp
 NAME = a.out

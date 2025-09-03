@@ -6,11 +6,11 @@
 #    By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/18 14:14:03 by isahmed           #+#    #+#              #
-#    Updated: 2025/08/19 18:01:02 by isahmed          ###   ########.fr        #
+#    Updated: 2025/09/03 13:20:17 by isahmed          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC= clang++
+CC = c++
 CFLAGS = -Wall -Wextra -Werror
 CPPFILES = main.cpp Fixed.cpp
 NAME = a.out
