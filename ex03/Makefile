@@ -6,37 +6,41 @@
 #    By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/18 14:14:03 by isahmed           #+#    #+#              #
-#    Updated: 2025/09/03 13:20:42 by isahmed          ###   ########.fr        #
+#    Updated: 2025/09/03 13:20:01 by isahmed          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = c++
-CFLAGS = -Wall -Wextra -Werror  -std=c++98
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I$(IDIR)
 SRCS = main.cpp Fixed.cpp bsp.cpp Point.cpp
 NAME = a.out
-SDIR = srcs/
-IDIR = inc/
-ODIR = objs/
-CFLAGS += -I$(IDIR)
-OBJS = $(addprefix $(ODIR), $(SRCS:.cpp=.o))
 
+IDIR = inc/
+SDIR = srcs/
+ODIR = objs/
+
+FULL_SRCS = $(addprefix $(SDIR), $(SRCS))
+OBJS = $(patsubst $(SDIR)%.cpp, $(ODIR)%.o, $(FULL_SRCS))
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
-	@$(MAKE) clean
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
+
+$(OBJS): | $(ODIR)
+
+$(ODIR)%.o: $(SDIR)%.cpp 
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(ODIR):
 	@mkdir -p $(ODIR)
 
- $(ODIR)%.o: $(SDIR)%.cpp  | $(ODIR)
-	$(CC) $(CFLAGS) -c $< -o $@
-
 re: fclean all
 
 clean:
-	rm -rf $(ODIR)*
-
+	rm -rf $(ODIR) 
+	
 fclean: clean
 	rm -rf $(NAME)
+
+.PHONY: all clean fclean re 

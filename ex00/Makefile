@@ -10,23 +10,26 @@
 #                                                                              #
 # **************************************************************************** #
 
-CC = c++
-CFLAGS = -Wall -Wextra -Werror
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CPPFILES = main.cpp Fixed.cpp
-BINARY = a.out
+NAME = a.out
 OBJS = $(patsubst %.cpp,%.o, $(CPPFILES))
 
-all: $(BINARY)
+all: $(NAME)
 
-$(BINARY): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(BINARY)
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
  %.o: %.cpp 
-	$(CC) $(CFLAGS) -c -o  $@ $<
+	$(CXX) $(CXXFLAGS) -c -o  $@ $<
 
 re: fclean all
 
 clean:
 	rm -rf *.o
+	
 fclean: clean
-	rm -rf $(BINARY)
+	rm -rf $(NAME)
+
+.PHONY: all clean fclean re 

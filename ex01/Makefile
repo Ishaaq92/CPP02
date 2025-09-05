@@ -6,12 +6,12 @@
 #    By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/18 14:14:03 by isahmed           #+#    #+#              #
-#    Updated: 2025/09/03 13:20:17 by isahmed          ###   ########.fr        #
+#    Updated: 2025/09/03 13:20:01 by isahmed          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = c++
-CFLAGS = -Wall -Wextra -Werror
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CPPFILES = main.cpp Fixed.cpp
 NAME = a.out
 OBJS = $(patsubst %.cpp,%.o, $(CPPFILES))
@@ -19,11 +19,10 @@ OBJS = $(patsubst %.cpp,%.o, $(CPPFILES))
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-	@$(MAKE) clean
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
  %.o: %.cpp 
-	$(CC) $(CFLAGS) -c -o  $@ $<
+	$(CXX) $(CXXFLAGS) -c -o  $@ $<
 
 re: fclean all
 
@@ -31,3 +30,5 @@ clean:
 	rm -rf *.o
 fclean: clean
 	rm -rf $(NAME)
+
+.PHONY: all clean fclean re 
