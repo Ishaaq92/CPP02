@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-#include <ostream>
-#include <cmath>
 
 Fixed::Fixed(void) : value_(0)
 {

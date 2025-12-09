@@ -10,13 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+# pragma once
+
 # include <iostream>
 # include <ostream>
+# include <cmath>
 
 class Fixed
 {
+	private:
+		int					value_;
+		static const int	fractional_ = 8;
+
+	protected:
+
 	public:
 		Fixed(void);
 		~Fixed(void);
@@ -28,11 +35,7 @@ class Fixed
 		Fixed			&operator=(const Fixed &right);
 		float			toFloat( void ) const;
 		int				toInt( void ) const;
-	private:
-		int					value_;
-		static const int	fractional_ = 8;
 };
 
 std::ostream	&operator<<(std::ostream &out, const Fixed &val);
 
-#endif

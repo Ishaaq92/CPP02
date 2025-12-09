@@ -42,8 +42,8 @@ void	Fixed::setRawBits(int const raw)
 
 Fixed	&Fixed::operator=(const Fixed &right)
 {
-	
 	std::cout << "Copy assignment operator called" << std::endl;
 	this->integer_ = right.getRawBits();
 	return (*this);
 }
+
