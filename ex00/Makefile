@@ -14,21 +14,25 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CPPFILES = main.cpp Fixed.cpp
 NAME = a.out
-OBJS = $(patsubst %.cpp,%.o, $(CPPFILES))
+ODIR = objs
+OBJS = $(patsubst %.cpp, $(ODIR)/%.o, $(CPPFILES))
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) | $(ODIR)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
- %.o: %.cpp 
+$(ODIR)/%.o: %.cpp | $(ODIR)
 	$(CXX) $(CXXFLAGS) -c -o  $@ $<
+
+$(ODIR):
+	mkdir -p $(ODIR)
 
 re: fclean all
 
 clean:
-	rm -rf *.o
-	
+	rm -rf $(ODIR)	
+
 fclean: clean
 	rm -rf $(NAME)
 
