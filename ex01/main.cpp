@@ -6,11 +6,10 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 12:51:53 by isahmed           #+#    #+#             */
-/*   Updated: 2025/08/19 17:49:12 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/10/22 12:50:04 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Fixed.hpp"
 
 int main(void)

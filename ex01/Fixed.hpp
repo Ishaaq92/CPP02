@@ -6,17 +6,24 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 11:10:11 by isahmed           #+#    #+#             */
-/*   Updated: 2025/08/19 17:53:21 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/10/22 12:49:43 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#pragma once
+
 # include <iostream>
 # include <ostream>
+# include <cmath>
 
 class Fixed
 {
+	private:
+		int					value_;
+		static const int	fractional_ = 8;
+
+	protected:
+
 	public:
 		Fixed(void);
 		~Fixed(void);
@@ -28,11 +35,7 @@ class Fixed
 		Fixed			&operator=(const Fixed &right);
 		float			toFloat( void ) const;
 		int				toInt( void ) const;
-	private:
-		int					value_;
-		static const int	fractional_ = 8;
 };
 
 std::ostream	&operator<<(std::ostream &out, const Fixed &val);
 
-#endif

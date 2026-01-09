@@ -6,56 +6,24 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 12:51:53 by isahmed           #+#    #+#             */
-/*   Updated: 2025/08/20 12:31:30 by isahmed          ###   ########.fr       */
+/*   Updated: 2026/01/09 15:36:53 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Fixed.hpp"
 
 int main(void)
 {
-	Fixed	a;
-	Fixed	b;
+	Fixed a;
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 
-	a = Fixed( 42.42f );
-	b = Fixed( 42 );
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << Fixed::max( a, b ) << std::endl;
 
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-
-	// std::cout << "Logical operators" << std::endl;
-
-	// std::cout << (a > b) << std::endl;
-	// std::cout << (a < b) << std::endl;
-
-	// std::cout << (a > b) << std::endl;
-	// std::cout << (a < b) << std::endl;
-
-	// std::cout << (a >= b) << std::endl;
-	// std::cout << (a <= b) << std::endl;
-
-	// std::cout << (a != b) << std::endl;
-	// std::cout << (a == b) << std::endl;
-
-	// std::cout << "Arithmetic operators" << std::endl;
-
-	// std::cout << (a + b) << std::endl;
-	// std::cout << (a - b) << std::endl;
-	// std::cout << (a * b) << std::endl;
-	// std::cout << (a / b) << std::endl;
-
-	std::cout << "Increment/decrement operators" << std::endl;
-
-	std::cout << (++b) << std::endl;
-	b = Fixed( 42 );
-	std::cout << (--b) << std::endl;
-	b = Fixed( 42 );
-	std::cout << (b++) << std::endl;
-	b = Fixed( 42 );
-	std::cout << (b--) << std::endl;
-	b = Fixed( 42 );
-
-	std::cout << "The smaller of " << a << " and " << b << " is " <<  Fixed::min( a, b ) << std::endl;
-	std::cout << "The larger of " << a << " and " << b <<  " is " << Fixed::max( a, b ) << std::endl;
 }
+

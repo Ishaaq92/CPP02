@@ -6,28 +6,34 @@
 #    By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/18 14:14:03 by isahmed           #+#    #+#              #
-#    Updated: 2025/09/03 13:20:17 by isahmed          ###   ########.fr        #
+#    Updated: 2026/01/09 15:53:19 by isahmed          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = c++
-CFLAGS = -Wall -Wextra -Werror
-CPPFILES = main.cpp Fixed.cpp
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFILES = main.cpp Fixed.cpp
 NAME = a.out
-OBJS = $(patsubst %.cpp,%.o, $(CPPFILES))
+ODIR = objs
+OBJS = $(patsubst %.cpp, $(ODIR)/%.o, $(CXXFILES))
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-	@$(MAKE) clean
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
- %.o: %.cpp 
-	$(CC) $(CFLAGS) -c -o  $@ $<
+$(ODIR)/%.o: %.cpp | $(ODIR)
+	$(CXX) $(CXXFLAGS) -c -o  $@ $<
+
+$(ODIR):
+	mkdir -p $(ODIR)
 
 re: fclean all
 
 clean:
-	rm -rf *.o
+	rm -rf $(ODIR)
+
 fclean: clean
 	rm -rf $(NAME)
+
+.PHONY: all re clean fclean

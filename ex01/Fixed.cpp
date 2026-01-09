@@ -6,13 +6,11 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 11:13:48 by isahmed           #+#    #+#             */
-/*   Updated: 2025/08/19 17:54:01 by isahmed          ###   ########.fr       */
+/*   Updated: 2026/01/09 15:33:45 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-#include <ostream>
-#include <cmath>
 
 Fixed::Fixed(void) : value_(0)
 {
@@ -32,7 +30,7 @@ Fixed::~Fixed(void)
 
 int	Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
+	// std::cout << "getRawBits member function called" << std::endl;
 	return (this->value_);
 }
 

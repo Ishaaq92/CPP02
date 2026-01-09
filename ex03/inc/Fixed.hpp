@@ -6,12 +6,12 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 11:10:11 by isahmed           #+#    #+#             */
-/*   Updated: 2025/08/20 13:22:57 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/10/22 13:20:15 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#pragma once
+
 # include <iostream>
 # include <ostream>
 
@@ -59,4 +59,3 @@ class Fixed
 
 std::ostream	&operator<<(std::ostream &out, const Fixed &val);
 
-#endif
