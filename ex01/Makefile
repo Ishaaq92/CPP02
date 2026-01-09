@@ -6,7 +6,7 @@
 #    By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/18 14:14:03 by isahmed           #+#    #+#              #
-#    Updated: 2026/01/09 15:53:19 by isahmed          ###   ########.fr        #
+#    Updated: 2026/01/09 16:10:44 by isahmed          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,14 +15,14 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CXXFILES = main.cpp Fixed.cpp
 NAME = a.out
 ODIR = objs
-OBJS = $(patsubst %.cpp, $(ODIR)/%.o, $(CXXFILES))
+OBJS = $(patsubst %.cpp, $(ODIR)/%.o, $(CPPFILES))
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) | $(ODIR)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-$(ODIR)/%.o: %.cpp | $(ODIR)
+ $(ODIR)/%.o: %.cpp | $(ODIR)
 	$(CXX) $(CXXFLAGS) -c -o  $@ $<
 
 $(ODIR):
@@ -35,5 +35,3 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
-
-.PHONY: all re clean fclean
