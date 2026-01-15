@@ -6,7 +6,7 @@
 #    By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/18 14:14:03 by isahmed           #+#    #+#              #
-#    Updated: 2026/01/09 16:10:44 by isahmed          ###   ########.fr        #
+#    Updated: 2026/01/09 17:19:04 by isahmed          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CXXFILES = main.cpp Fixed.cpp
 NAME = a.out
 ODIR = objs
-OBJS = $(patsubst %.cpp, $(ODIR)/%.o, $(CPPFILES))
+OBJS = $(patsubst %.cpp, $(ODIR)/%.o, $(CXXFILES))
 
 all: $(NAME)
 

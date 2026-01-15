@@ -6,11 +6,11 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 11:10:11 by isahmed           #+#    #+#             */
-/*   Updated: 2026/01/09 16:09:09 by isahmed          ###   ########.fr       */
+/*   Updated: 2026/01/09 17:19:31 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# pragma once
+#pragma once
 
 # include <iostream>
 # include <ostream>
@@ -19,12 +19,6 @@
 
 class Fixed
 {
-	private:
-		int					value_;
-		static const int	fractional_ = 8;
-
-	protected:
-
 	private:
 		int					value_;
 		static const int	fractional_ = 8;
